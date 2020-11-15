@@ -1,6 +1,15 @@
 import java.util.ArrayList;
 import edu.princeton.cs.introcs.*;
-
+/* Code smells: 
+ * **Functions Names should do what they say: but since this is such a huge method there 
+ * are a lot of things going on. Renamed smaller methods so they accurately describe what is going on in the code.
+ * 
+ * **Encapsulate Conditionals: moved the conditionals that check for the skunks to their own methods checkForSingleSkunk, 
+ * checkForDoubleSkunk, checkForSkunkDeuce
+ * 
+ * **Code should do one thing: changed so the responses to the specific special dice are separated out into their own methods. Also separated
+ * out some code like setup and RollAgain, which is repeated several times.
+ */
 public class SkunkDomain
 {
 	public SkunkUI skunkUI;
@@ -110,6 +119,8 @@ public class SkunkDomain
 		}
 		// last round: everyone but last activePlayer gets another shot
 
+
+		 
 		ui.println("**** Last turn for all... ****");
 
 		for (int i = activePlayerIndex, count = 0; count < numberOfPlayers-1; i = (i++) % numberOfPlayers, count++)
